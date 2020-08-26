@@ -5,7 +5,7 @@ ENV JAVA_VERSION=8 \
     JAVA_BUILD=08 \
     JAVA_PATH=1961070e4c9b4e26a04e7f5a083f551e \
     JAVA_HOME="/usr/lib/jvm/default-jvm"
-RUN apk add -U tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && apk del tzdata \
+RUN apk add -U tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' > /etc/timezone && apk del tzdata \
 RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates unzip && \
     cd "/tmp" && \
     wget --header "Cookie: oraclelicense=accept-securebackup-cookie;" \
